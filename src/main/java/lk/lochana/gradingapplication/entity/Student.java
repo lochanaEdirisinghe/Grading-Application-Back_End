@@ -19,8 +19,8 @@ public class Student {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "class", referencedColumnName = "id")
     private Class classId;
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "role", referencedColumnName = "id")
-    private Role role;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_name", referencedColumnName = "user_name")
+    private User user;
 
 }
