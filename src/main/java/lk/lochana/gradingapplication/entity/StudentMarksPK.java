@@ -13,9 +13,7 @@ import java.io.Serializable;
 @EqualsAndHashCode
 public class StudentMarksPK implements Serializable {
 
-    @Column(name = "student_id")
     private String sId;
-    @Column(name = "asmnt_id")
     private String asmntId;
     private int qNo;
 }

@@ -16,7 +16,6 @@ public class Assingment {
     private String asmntId;
     @Column(name = "asmnt_name")
     private String asmntName;
-
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "teacher", referencedColumnName = "id")
     private Teacher teacher;

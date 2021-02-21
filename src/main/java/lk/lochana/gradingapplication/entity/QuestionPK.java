@@ -16,8 +16,6 @@ import java.io.Serializable;
 @EqualsAndHashCode
 @Embeddable
 public class QuestionPK implements Serializable {
-
-    @Column(name = "asmnt_id")
     private String asmntId;
     private int qNo;
 }

@@ -11,8 +11,9 @@ import javax.persistence.*;
 public class Question {
     @EmbeddedId
     private QuestionPK questionPK;
-    @MapsId("asmnt_id")
+    @MapsId("asmntId")
     @ManyToOne
+    @JoinColumn(name = "asmnt_id")
     private Assingment assingment;
     private String question;
     private String answer;

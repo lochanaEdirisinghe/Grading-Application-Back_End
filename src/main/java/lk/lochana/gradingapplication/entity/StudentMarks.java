@@ -13,12 +13,14 @@ public class StudentMarks {
     @EmbeddedId
     private StudentMarksPK marksPK;
 
-    @MapsId("student_id")
+    @MapsId("sId")
     @ManyToOne
+    @JoinColumn(name = "student_id")
     private Student student;
 
-    @MapsId("asmnt_id")
+    @MapsId("asmntId")
     @ManyToOne
+    @JoinColumn(name = "asmnt_id")
     private Assingment assingment;
 
     private String result;
