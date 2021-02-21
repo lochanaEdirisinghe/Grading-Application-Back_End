@@ -17,10 +17,11 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public StudentDto searchStudent(String username) {
-        if (!repository.existsById(username)) {
+
+        if (repository.existByusername(username)==0) {
             throw new RuntimeException("No Such Student");
         }
-        Optional<Student> student1 = repository.findStudentByUser(username);
+        Optional<Student> student1 = repository.findByusername(username);
         Student student = student1.get();
         return new StudentDto(student.getId(), student.getName(), student.getClassId().getName(),
                 student.getClassId().getTeacher().getName());

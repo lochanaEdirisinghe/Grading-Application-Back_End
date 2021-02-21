@@ -1,0 +1,38 @@
+package lk.lochana.gradingapplication.controller;
+
+import lk.lochana.gradingapplication.dto.AssingmentDto;
+import lk.lochana.gradingapplication.dto.QuestionDto;
+import lk.lochana.gradingapplication.dto.StandardResponse;
+import lk.lochana.gradingapplication.service.AssingmentService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/v1/assingments")
+public class AssingmentController {
+
+    @Autowired
+    private AssingmentService service;
+
+    @GetMapping("/{teacherId}")
+    public ResponseEntity getAssingments(@PathVariable String teacherId){
+        List<AssingmentDto> assingments = service.getAssingments(teacherId);
+
+        return new ResponseEntity(new StandardResponse(200, "true", assingments), HttpStatus.OK);
+    }
+
+    @GetMapping("/questionId")
+    public ResponseEntity getQuestions(@PathVariable String questionId){
+        List<QuestionDto> questions =
+    }
+
+
+}
