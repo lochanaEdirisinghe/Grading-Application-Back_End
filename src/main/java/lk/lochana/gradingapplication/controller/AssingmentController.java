@@ -29,9 +29,10 @@ public class AssingmentController {
         return new ResponseEntity(new StandardResponse(200, "true", assingments), HttpStatus.OK);
     }
 
-    @GetMapping("/questionId")
-    public ResponseEntity getQuestions(@PathVariable String questionId){
-        List<QuestionDto> questions =
+    @GetMapping("questions/{asmntId}")
+    public ResponseEntity getQuestions(@PathVariable String asmntId){
+        List<QuestionDto> questions = service.getQuestions(asmntId);
+        return new ResponseEntity(new StandardResponse(200, "true", questions), HttpStatus.OK);
     }
 
 
