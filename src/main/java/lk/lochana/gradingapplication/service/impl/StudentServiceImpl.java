@@ -5,7 +5,7 @@ import lk.lochana.gradingapplication.dto.StudentDto;
 import lk.lochana.gradingapplication.entity.Student;
 import lk.lochana.gradingapplication.entity.StudentMarks;
 import lk.lochana.gradingapplication.entity.StudentMarksPK;
-import lk.lochana.gradingapplication.repository.SrudentMarksRepository;
+import lk.lochana.gradingapplication.repository.StudentMarksRepository;
 import lk.lochana.gradingapplication.repository.StudentRepository;
 import lk.lochana.gradingapplication.service.StudentService;
 import org.modelmapper.ModelMapper;
@@ -21,7 +21,7 @@ public class StudentServiceImpl implements StudentService {
     private StudentRepository repository;
 
     @Autowired
-    private SrudentMarksRepository marksRepository;
+    private StudentMarksRepository marksRepository;
 
     @Autowired
     private ModelMapper modelMapper;
@@ -41,7 +41,7 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public MarksDto getMarks(String studentId, String asmntId, int qNo) {
 
-        StudentMarks studentMarks = marksRepository.findByIdpk(studentId, asmntId, qNo).get();
-       return modelMapper.map(studentMarks, MarksDto.class);
+        Optional<StudentMarks> studentMarks = marksRepository.findById(new StudentMarksPK(studentId, asmntId, qNo));
+        return modelMapper.map(studentMarks.get(), MarksDto.class);
     }
 }

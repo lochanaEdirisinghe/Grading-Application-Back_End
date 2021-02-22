@@ -8,7 +8,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 class GradingApplicationTests {
     public static void main(String[] args) {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        String paswrd="chamari";
+        String paswrd="nimal";
         String encodedpaswrd=encoder.encode(paswrd);
         System.out.println(encodedpaswrd);
     }

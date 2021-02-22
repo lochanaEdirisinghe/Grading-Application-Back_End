@@ -11,6 +11,7 @@ import java.sql.Time;
 @NoArgsConstructor
 public class MarksDto {
 
+    private String studentId;
     private String answer;
     private int noOfAttempts;
     private String result;
