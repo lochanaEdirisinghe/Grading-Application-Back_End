@@ -3,6 +3,7 @@ package lk.lochana.gradingapplication.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.sql.Time;
 
 @Entity
 @Data
@@ -25,7 +26,7 @@ public class StudentMarks {
 
     private String result;
     private String answer;
-    private String timeSpent;
+    private Time timeSpent;
     private String noOfAttempts;
 
 }
