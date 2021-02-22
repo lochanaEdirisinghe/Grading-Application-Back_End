@@ -1,6 +1,7 @@
 package lk.lochana.gradingapplication.controller;
 
 import lk.lochana.gradingapplication.dto.MarksDto;
+import lk.lochana.gradingapplication.dto.OverallMarksDto;
 import lk.lochana.gradingapplication.dto.StandardResponse;
 import lk.lochana.gradingapplication.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,8 @@ public class TeacherController {
 
     @GetMapping("/{asmentId}/{qNo}")
     public ResponseEntity getOverallMarks(@PathVariable("asmentId") String asmentId, @PathVariable("qNo") int qNo) {
-        List<MarksDto> overallMarks = service.getOverallMarks(asmentId, qNo);
+        OverallMarksDto overallMarks = service.getOverallMarks(asmentId, qNo);
+
         return new ResponseEntity(new StandardResponse(200, "true", overallMarks), HttpStatus.OK);
     }
 }
