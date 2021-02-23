@@ -2,6 +2,7 @@ package lk.lochana.gradingapplication.controller;
 
 import lk.lochana.gradingapplication.dto.JwtResponse;
 import lk.lochana.gradingapplication.dto.LoginRequest;
+import lk.lochana.gradingapplication.dto.StandardResponse;
 import lk.lochana.gradingapplication.dto.StudentDto;
 import lk.lochana.gradingapplication.repository.RoleRepository;
 import lk.lochana.gradingapplication.repository.UserRepository;
@@ -22,6 +23,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/v1/users")
 public class UserController {
@@ -67,7 +69,7 @@ public class UserController {
                 .collect(Collectors.toList());
 
 
-        return ResponseEntity.ok(new JwtResponse(jwt, userDetails.getUsername(), roles));
+        return ResponseEntity.ok( new StandardResponse(200, "true", new JwtResponse(jwt, userDetails.getUsername(), roles) ));
     }
 
     @GetMapping("/hello")

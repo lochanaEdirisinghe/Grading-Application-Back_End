@@ -35,7 +35,7 @@ public class StudentServiceImpl implements StudentService {
         Optional<Student> student1 = repository.findByusername(username);
         Student student = student1.get();
         return new StudentDto(student.getId(), student.getName(), student.getClassId().getName(),
-                student.getClassId().getTeacher().getName());
+                student.getClassId().getTeacher().getName(), student.getClassId().getTeacher().getId());
     }
 
     @Override

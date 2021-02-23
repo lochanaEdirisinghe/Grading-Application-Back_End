@@ -13,5 +13,6 @@ public class StudentDto {
     private String name;
     private String className;
     private String teacher;
+    private String teacherId;
 
 }

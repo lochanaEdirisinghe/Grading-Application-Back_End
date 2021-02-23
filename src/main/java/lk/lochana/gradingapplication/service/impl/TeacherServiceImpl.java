@@ -2,9 +2,11 @@ package lk.lochana.gradingapplication.service.impl;
 
 import lk.lochana.gradingapplication.dto.MarksDto;
 import lk.lochana.gradingapplication.dto.OverallMarksDto;
-import lk.lochana.gradingapplication.dto.QuestionDto;
+import lk.lochana.gradingapplication.dto.TeacherDto;
 import lk.lochana.gradingapplication.entity.StudentMarks;
+import lk.lochana.gradingapplication.entity.Teacher;
 import lk.lochana.gradingapplication.repository.StudentMarksRepository;
+import lk.lochana.gradingapplication.repository.TeacherRepository;
 import lk.lochana.gradingapplication.service.TeacherService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
@@ -13,9 +15,14 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalTime;
 import java.util.List;
+import java.util.Optional;
+
 
 @Service
 public class TeacherServiceImpl implements TeacherService {
+
+    @Autowired
+    private TeacherRepository teacherRepository;
 
     @Autowired
     private StudentMarksRepository marksRepository;
@@ -53,5 +60,17 @@ public class TeacherServiceImpl implements TeacherService {
                 modelMapper.map(allmarksOfQuestion, new TypeToken<List<MarksDto>>() {
         }.getType()));
 
+    }
+
+    @Override
+    public TeacherDto searchTeacher(String username) {
+
+        if (teacherRepository.existByusername(username)==0) {
+            throw new RuntimeException("No Such Teacher");
+        }else{
+            Optional<Teacher> teacher1 = teacherRepository.findByusername(username);
+            Teacher teacher=teacher1.get();
+            return new TeacherDto(teacher.getId(), teacher.getName(), teacher.getClassId().getName());
+        }
     }
 }
