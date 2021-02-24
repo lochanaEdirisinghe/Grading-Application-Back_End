@@ -11,10 +11,12 @@ import lk.lochana.gradingapplication.service.StudentService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
 @Service
+@Transactional
 public class StudentServiceImpl implements StudentService {
 
     @Autowired
@@ -28,7 +30,6 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public StudentDto searchStudent(String username) {
-
         if (repository.existByusername(username)==0) {
             throw new RuntimeException("No Such Student");
         }
@@ -40,8 +41,12 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public MarksDto getMarks(String studentId, String asmntId, int qNo) {
-
         Optional<StudentMarks> studentMarks = marksRepository.findById(new StudentMarksPK(studentId, asmntId, qNo));
-        return modelMapper.map(studentMarks.get(), MarksDto.class);
+        if (studentMarks.isPresent()) {
+            return modelMapper.map(studentMarks.get(), MarksDto.class);
+        } else {
+            throw new RuntimeException("This student didn't do this question..");
+        }
+
     }
 }

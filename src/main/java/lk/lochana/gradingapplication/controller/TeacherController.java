@@ -1,6 +1,5 @@
 package lk.lochana.gradingapplication.controller;
 
-import lk.lochana.gradingapplication.dto.MarksDto;
 import lk.lochana.gradingapplication.dto.OverallMarksDto;
 import lk.lochana.gradingapplication.dto.StandardResponse;
 import lk.lochana.gradingapplication.dto.TeacherDto;
