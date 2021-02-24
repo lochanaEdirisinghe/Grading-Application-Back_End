@@ -1,4 +1,4 @@
-package lk.lochana.gradingapplication.security;
+package lk.lochana.gradingapplication.filters;
 
 import lk.lochana.gradingapplication.service.impl.UserDetailServiceImpl;
 import lk.lochana.gradingapplication.util.JwtUtil;

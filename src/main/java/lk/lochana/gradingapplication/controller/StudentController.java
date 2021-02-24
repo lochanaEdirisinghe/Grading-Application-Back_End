@@ -20,14 +20,14 @@ public class StudentController {
 
     @GetMapping("/{username}")
     @PreAuthorize("hasAuthority('STUDENT')")
-    public ResponseEntity searchStudent(@PathVariable String username) {
+    public ResponseEntity<StandardResponse> searchStudent(@PathVariable String username) {
         StudentDto studentDto = service.searchStudent(username);
         return new ResponseEntity(new StandardResponse(200, "true", studentDto), HttpStatus.OK);
     }
 
     @GetMapping("/{studentID}/{asmntId}/{qNo}")
     @PreAuthorize("hasAuthority('STUDENT')")
-    public ResponseEntity getMarks(@PathVariable("studentID") String studentId, @PathVariable("asmntId") String asmntId, @PathVariable("qNo") int qNo ){
+    public ResponseEntity<StandardResponse> getMarks(@PathVariable("studentID") String studentId, @PathVariable("asmntId") String asmntId, @PathVariable("qNo") int qNo ){
         MarksDto marks = service.getMarks(studentId, asmntId, qNo);
         return new ResponseEntity(new StandardResponse(200, "true", marks), HttpStatus.OK);
 

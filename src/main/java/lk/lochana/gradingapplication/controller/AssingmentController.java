@@ -20,14 +20,14 @@ public class AssingmentController {
     private AssingmentService service;
 
     @GetMapping("/{teacherId}")
-    public ResponseEntity getAssingments(@PathVariable String teacherId){
+    public ResponseEntity<StandardResponse> getAssingments(@PathVariable String teacherId){
         List<AssingmentDto> assingments = service.getAssingments(teacherId);
 
         return new ResponseEntity(new StandardResponse(200, "true", assingments), HttpStatus.OK);
     }
 
     @GetMapping("questions/{asmntId}")
-    public ResponseEntity getQuestions(@PathVariable String asmntId){
+    public ResponseEntity<StandardResponse> getQuestions(@PathVariable String asmntId){
         List<QuestionDto> questions = service.getQuestions(asmntId);
         return new ResponseEntity(new StandardResponse(200, "true", questions), HttpStatus.OK);
     }

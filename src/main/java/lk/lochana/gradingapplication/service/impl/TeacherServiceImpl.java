@@ -1,10 +1,10 @@
 package lk.lochana.gradingapplication.service.impl;
 
-import lk.lochana.gradingapplication.dto.MarksDto;
-import lk.lochana.gradingapplication.dto.OverallMarksDto;
-import lk.lochana.gradingapplication.dto.TeacherDto;
+import lk.lochana.gradingapplication.dto.*;
+import lk.lochana.gradingapplication.entity.GradeDetails;
 import lk.lochana.gradingapplication.entity.StudentMarks;
 import lk.lochana.gradingapplication.entity.Teacher;
+import lk.lochana.gradingapplication.repository.GradeDetailRepository;
 import lk.lochana.gradingapplication.repository.StudentMarksRepository;
 import lk.lochana.gradingapplication.repository.TeacherRepository;
 import lk.lochana.gradingapplication.service.TeacherService;
@@ -30,18 +30,31 @@ public class TeacherServiceImpl implements TeacherService {
     private StudentMarksRepository marksRepository;
 
     @Autowired
+    private GradeDetailRepository gradeDetailRepository;
+
+    @Autowired
     private ModelMapper modelMapper;
 
 
     @Override
     public TeacherDto searchTeacher(String username) {
-
         if (teacherRepository.existByusername(username)==0) {
             throw new RuntimeException("No Such Teacher");
         }else{
             Optional<Teacher> teacher1 = teacherRepository.findByusername(username);
             Teacher teacher=teacher1.get();
             return new TeacherDto(teacher.getId(), teacher.getName(), teacher.getClassId().getName());
+        }
+    }
+
+    @Override
+    public List<GradeDto> getOverallGrades(String asmnId) {
+        List<GradeDetails> gradeDetails = gradeDetailRepository.findAllByasmntId(asmnId);
+        if(!gradeDetails.isEmpty()){
+            return modelMapper.map(gradeDetails, new TypeToken<List<GradeDto>>() {
+            }.getType());
+        }else {
+            throw new RuntimeException("No students with grades");
         }
     }
 

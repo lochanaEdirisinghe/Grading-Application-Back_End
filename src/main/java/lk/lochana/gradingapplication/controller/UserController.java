@@ -52,7 +52,7 @@ public class UserController {
 
 
     @PostMapping("/signin")
-    public ResponseEntity<?> authenticateUser(@RequestBody LoginRequest loginRequest) {
+    public ResponseEntity<StandardResponse> authenticateUser(@RequestBody LoginRequest loginRequest) {
 
         try {
             Authentication authentication = authenticationManager.authenticate(
@@ -70,12 +70,6 @@ public class UserController {
 
 
         return ResponseEntity.ok( new StandardResponse(200, "true", new JwtResponse(jwt, userDetails.getUsername(), roles) ));
-    }
-
-    @GetMapping("/hello")
-    @PreAuthorize("hasAuthority('TEACHER')")
-    public String hello(){
-        return "Hello teacher";
     }
 
 

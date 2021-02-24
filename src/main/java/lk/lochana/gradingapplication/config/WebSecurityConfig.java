@@ -1,7 +1,7 @@
 package lk.lochana.gradingapplication.config;
 
 
-import lk.lochana.gradingapplication.security.JwtRequestFilter;
+import lk.lochana.gradingapplication.filters.JwtRequestFilter;
 import lk.lochana.gradingapplication.service.impl.UserDetailServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

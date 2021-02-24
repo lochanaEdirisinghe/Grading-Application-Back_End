@@ -7,7 +7,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
-public class AppWideAdvisor {
+public class RestExceptionHandler {
+
 
     @ExceptionHandler({Exception.class})
     public ResponseEntity handleMyException(Exception ex) {
