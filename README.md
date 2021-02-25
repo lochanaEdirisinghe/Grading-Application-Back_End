@@ -34,6 +34,11 @@ Then automatically spring data jpa will create the database called "gradingApp" 
 
 Then use the gradingApplicationDB.sql file to add the data. Also you can use the data.sql file inside the resource folder.
 
+#### Use these two users to check the application
+
+Student -: username - kamal12  &  password - kamal                   
+Teacher -: username - chamari12  &  password -chamari
+
 
 
 ## Assumptions
