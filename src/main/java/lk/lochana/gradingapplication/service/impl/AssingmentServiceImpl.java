@@ -1,10 +1,13 @@
 package lk.lochana.gradingapplication.service.impl;
 
 import lk.lochana.gradingapplication.dto.AssingmentDto;
+import lk.lochana.gradingapplication.dto.GradeDto;
 import lk.lochana.gradingapplication.dto.QuestionDto;
 import lk.lochana.gradingapplication.entity.Assingment;
+import lk.lochana.gradingapplication.entity.GradeDetails;
 import lk.lochana.gradingapplication.entity.Question;
 import lk.lochana.gradingapplication.repository.AssingmentRepository;
+import lk.lochana.gradingapplication.repository.GradeDetailRepository;
 import lk.lochana.gradingapplication.repository.QuestionRepository;
 import lk.lochana.gradingapplication.service.AssingmentService;
 import org.modelmapper.ModelMapper;
@@ -28,6 +31,9 @@ public class AssingmentServiceImpl implements AssingmentService {
     @Autowired
     private QuestionRepository questionRepo;
 
+    @Autowired
+    private GradeDetailRepository gradeDetailRepository;
+
     @Override
     public List<AssingmentDto> getAssingments(String teacherId) {
         List<Assingment> assingments =assingmentRepo.findByteacher(teacherId);
@@ -50,6 +56,17 @@ public class AssingmentServiceImpl implements AssingmentService {
             throw new RuntimeException("No Questions");
         }
 
+    }
+
+    @Override
+    public List<GradeDto> getOverallGrades(String asmnId) {
+        List<GradeDetails> gradeDetails = gradeDetailRepository.findAllByasmntId(asmnId);
+        if(!gradeDetails.isEmpty()){
+            return modelMapper.map(gradeDetails, new TypeToken<List<GradeDto>>() {
+            }.getType());
+        }else {
+            throw new RuntimeException("No students with grades");
+        }
     }
 
 

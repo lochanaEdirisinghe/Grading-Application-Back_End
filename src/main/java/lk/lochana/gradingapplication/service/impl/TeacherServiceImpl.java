@@ -30,9 +30,6 @@ public class TeacherServiceImpl implements TeacherService {
     private StudentMarksRepository marksRepository;
 
     @Autowired
-    private GradeDetailRepository gradeDetailRepository;
-
-    @Autowired
     private ModelMapper modelMapper;
 
 
@@ -47,16 +44,6 @@ public class TeacherServiceImpl implements TeacherService {
         }
     }
 
-    @Override
-    public List<GradeDto> getOverallGrades(String asmnId) {
-        List<GradeDetails> gradeDetails = gradeDetailRepository.findAllByasmntId(asmnId);
-        if(!gradeDetails.isEmpty()){
-            return modelMapper.map(gradeDetails, new TypeToken<List<GradeDto>>() {
-            }.getType());
-        }else {
-            throw new RuntimeException("No students with grades");
-        }
-    }
 
     @Override
     public OverallMarksDto getOverallMarks(String asmentId, int qNo) {

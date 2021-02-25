@@ -13,5 +13,5 @@ public interface TeacherService {
 
     TeacherDto searchTeacher(String teacherId);
 
-    List<GradeDto> getOverallGrades(String asmnId);
+
 }

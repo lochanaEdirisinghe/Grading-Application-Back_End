@@ -29,12 +29,12 @@ insert into student values
 ('S006','Danuka','C001','danuka12');
 
 insert into assingment values
-('AS001',	'Java Assingment',	'esay',	'T001')
-('AS002',	'OOP Assingment',	'esay',	'T001'),
-('AS003', 'Maths Assingment','structured',	'T001'),
-('AS004', 'Maths Assingment',	'structured',	'T002'),
-('AS005', 'Science Assingment',	'structured',	'T002'),
-('AS006', 'Programming Assingment',	'structured',	'T002');
+('AS001',	'Java Assingment',	'online',	'T001')
+('AS002',	'OOP Assingment',	'online',	'T001'),
+('AS003', 'Maths Assingment','paper',	'T001'),
+('AS004', 'Maths Assingment',	'paper',	'T002'),
+('AS005', 'Science Assingment',	'paper',	'T002'),
+('AS006', 'Programming Assingment',	'online',	'T002');
 
 insert into question values
 ('AS001', 1, 8, 'no of primitive data types in java?'),
