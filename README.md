@@ -30,6 +30,8 @@ mvn spring-boot:run
 ```
 Then automatically spring data jpa will create the database called "gradingApp" having 9 table.
 
+In the application.yml file mysql username and password should be replaced with your username and password
+
 #### Table structure
 
 ![image info](./gradingAppDB.png)
