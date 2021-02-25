@@ -28,15 +28,20 @@ There are several ways to run a Spring Boot application on your local machine.
 ```
 mvn spring-boot:run
 ```
+In the application.properties file mysql username and password should be replaced with your username and password
+
 Then automatically spring data jpa will create the database called "gradingApp" having 9 table.
 
-In the application.yml file mysql username and password should be replaced with your username and password
+Then use the gradingApplicationDB.sql file to add the data. Also you can use the data.sql file inside the resource folder.
+
+
 
 ## Assumptions
 
 * One class has one teacher.
 * Teacher can give multiple assignments but only for her class.
 * Student will be given a grade (A, B, C like that) for every assignment
+* Teacher will see overall statistics for every question.
 
 
 #### Table structure
