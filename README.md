@@ -32,6 +32,13 @@ Then automatically spring data jpa will create the database called "gradingApp" 
 
 In the application.yml file mysql username and password should be replaced with your username and password
 
+## Assumptions
+
+* One class has one teacher.
+* Teacher can give multiple assignments but only for her class.
+* Student will be given a grade (A, B, C like that) for every assignment
+
+
 #### Table structure
 
 ![image info](./gradingAppDB.png)
