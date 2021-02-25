@@ -9,6 +9,7 @@ Spring Boot application to manage student marks for assignments
 * Spring Boot - Used to develop the api with fewer configurations and focus more on the business logic. And easy to handle crosscutting. Easy to manage dependency injection and provides spring data JPA to communicate with the database using ORM mapping.
 * Maven - Project Management Tool(easy to handle dependencies)
 * Database - MySQL
+* Authentication - JWT with Spring Security
 
 #### Libraries and Plugins
 
