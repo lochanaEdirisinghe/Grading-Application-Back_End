@@ -36,8 +36,8 @@ Then use the gradingApplicationDB.sql file to add the data. Also you can use the
 
 #### Use these two users to check the application
 
-Student -: username - kamal12  &  password - kamal                   
-Teacher -: username - chamari12  &  password -chamari
+*Student -: username - kamal12  &  password - kamal                   
+*Teacher -: username - chamari12  &  password -chamari
 
 
 
