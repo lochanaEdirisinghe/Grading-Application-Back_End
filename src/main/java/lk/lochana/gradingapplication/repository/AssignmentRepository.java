@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface AssingmentRepository extends JpaRepository<Assingment, String> {
+public interface AssignmentRepository extends JpaRepository<Assingment, String> {
 
     @Query(value = "select * from Assingment where teacher=:teacherId", nativeQuery = true)
     List<Assingment> findByteacher(@Param("teacherId") String teacherId);

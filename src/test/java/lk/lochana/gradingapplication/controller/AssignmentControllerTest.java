@@ -4,7 +4,7 @@ import lk.lochana.gradingapplication.dto.AssingmentDto;
 import lk.lochana.gradingapplication.dto.GradeDto;
 import lk.lochana.gradingapplication.dto.QuestionDto;
 import lk.lochana.gradingapplication.dto.StandardResponse;
-import lk.lochana.gradingapplication.service.AssingmentService;
+import lk.lochana.gradingapplication.service.AssignmentService;
 import org.junit.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.runner.RunWith;
@@ -31,7 +31,7 @@ public class AssignmentControllerTest {
     private AssingmentController assingmentController;
 
     @MockBean
-    private AssingmentService service;
+    private AssignmentService service;
 
     @Test
     public void getAssignmentsTest(){

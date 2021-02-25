@@ -6,7 +6,7 @@ import lk.lochana.gradingapplication.dto.QuestionDto;
 
 import java.util.List;
 
-public interface AssingmentService {
+public interface AssignmentService {
     List<AssingmentDto> getAssingments(String tracherId);
     List<QuestionDto> getQuestions(String asmntId);
     List<GradeDto> getOverallGrades(String asmnId);

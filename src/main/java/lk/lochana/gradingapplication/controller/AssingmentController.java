@@ -4,11 +4,10 @@ import lk.lochana.gradingapplication.dto.AssingmentDto;
 import lk.lochana.gradingapplication.dto.GradeDto;
 import lk.lochana.gradingapplication.dto.QuestionDto;
 import lk.lochana.gradingapplication.dto.StandardResponse;
-import lk.lochana.gradingapplication.service.AssingmentService;
+import lk.lochana.gradingapplication.service.AssignmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,7 +18,7 @@ import java.util.List;
 public class AssingmentController {
 
     @Autowired
-    private AssingmentService service;
+    private AssignmentService service;
 
     @GetMapping("/{teacherId}")
     public ResponseEntity<StandardResponse> getAssingments(@PathVariable String teacherId){

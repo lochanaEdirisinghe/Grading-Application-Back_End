@@ -6,10 +6,10 @@ import lk.lochana.gradingapplication.dto.QuestionDto;
 import lk.lochana.gradingapplication.entity.Assingment;
 import lk.lochana.gradingapplication.entity.GradeDetails;
 import lk.lochana.gradingapplication.entity.Question;
-import lk.lochana.gradingapplication.repository.AssingmentRepository;
+import lk.lochana.gradingapplication.repository.AssignmentRepository;
 import lk.lochana.gradingapplication.repository.GradeDetailRepository;
 import lk.lochana.gradingapplication.repository.QuestionRepository;
-import lk.lochana.gradingapplication.service.AssingmentService;
+import lk.lochana.gradingapplication.service.AssignmentService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,10 +20,10 @@ import java.util.List;
 
 @Service
 @Transactional
-public class AssingmentServiceImpl implements AssingmentService {
+public class AssignmentServiceImpl implements AssignmentService {
     
     @Autowired
-    private AssingmentRepository assingmentRepo;
+    private AssignmentRepository assingmentRepo;
 
     @Autowired
     private ModelMapper modelMapper;
